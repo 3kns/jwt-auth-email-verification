@@ -1,10 +1,9 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./database.db', (err) => {
-    if (err) {
-        console.error("Error opening database:", err);
-        process.exit(1);
-    }
-    console.log('SQLite database connected');
+const mongoose = require('mongoose');
+
+const connectDB =  mongoose.createConnection('mongodb://127.0.0.1:27017/Auth').on('open', ()=>{
+    console.log("Database connected successfully");
+}).on('error', ()=>{
+    console.log("Error connecting to database");
 });
 
-module.exports = db;
+module.exports = connectDB;

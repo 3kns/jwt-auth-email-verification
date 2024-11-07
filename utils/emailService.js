@@ -16,7 +16,8 @@ const sendVerificationEmail = (email, token) => {
         subject: 'Email Verification',
         text: `Please verify your email by clicking on the following link: ${url}`,
     };
+
     return transporter.sendMail(mailOptions);
 };
 
-module.exports = {sendVerificationEmail};
+module.exports = { sendVerificationEmail };
